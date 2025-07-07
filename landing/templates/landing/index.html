@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Chuyên viên hồi phục bệnh Gout{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'landing/style.css' %}">
+
+<div class="hero-section text-white text-center py-5" style="background: linear-gradient(to right, #006d5b, #44b09e);">
+  <div class="container">
+    <h1 class="display-4">🌿 CHUYÊN VIÊN HỒI PHỤC TẬN GỐC BỆNH GOUT</h1>
+    <p class="lead">"Người Truyền Thừa" - Chương trình đào tạo đặc biệt của Health Coach Đông Y Việt Nam</p>
+    <a href="#register" class="btn btn-light btn-lg mt-4">Tôi Muốn Hồi Phục Gout</a>
+  </div>
+</div>
+
+<div class="container py-5">
+  <section class="mb-5">
+    <h2 class="text-primary">🌟 Bạn Đang Khổ Sở Vì Gout Tái Phát?</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Cơn đau khớp bùng lên giữa đêm, không đi lại được?</li>
+      <li class="list-group-item">Sưng đỏ, nóng rát, gan nhiễm độc?</li>
+      <li class="list-group-item">Axit uric cao dù đã kiên cỻ, uống thuốc?</li>
+      <li class="list-group-item">Gout không chỉ là bệnh khớp – đó là tín hiệu của cơ thể!</li>
+    </ul>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="text-success">✅ Khóa Học Bạn Cần</h2>
+    <p><strong>Chuyên viên Hồi Phục Tận Gốc Bệnh Gout</strong><br>
+    Học online 5 ngày, có video ghi hình, nhận tư vấn 1:1</p>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="text-primary">🎯 Mục Tiêu Khóa Học</h2>
+    <ul>
+      <li>Hiểu cơ chế tận gốc Gout theo Đông – Tây y</li>
+      <li>Hồi phục Tỳ – Can – Thận</li>
+      <li>Quy trình 4 bước loại bỏ đau & axit uric</li>
+      <li>Dẫn dắt ăn uống – vận động – thảo dược</li>
+    </ul>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="text-success">👨‍🏫 Đội Ngũ Giảng Viên</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Thầy Đào Hiền Đạo</h5>
+        <p>Chuyên gia YHCT 20 năm kinh nghiệm</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Bác Sĩ Lâm Quang Thư</h5>
+        <p>Chuyên gia chuyển hóa, 3000+ ca Gout</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Dược sĩ Huy</h5>
+        <p>Dược liệu & dinh dưỡng phục hồi</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="register" class="bg-light p-5 rounded">
+    <h3 class="text-center text-primary mb-4">📝 ĐĂNG KÝ THAM DỰ NGAY</h3>
+    <form method="post" class="w-75 mx-auto">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.full_name.label_tag }}
+        {{ form.full_name }}
+      </div>
+      <div class="mb-3">
+        {{ form.phone.label_tag }}
+        {{ form.phone }}
+      </div>
+      <div class="mb-3">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+      </div>
+      <div class="mb-3">
+        {{ form.city.label_tag }}
+        {{ form.city }}
+      </div>
+      <button type="submit" class="btn btn-success w-100">Tôi Muốn Đăng Ký Ngay</button>
+    </form>
+  </section>
+</div>
+{% endblock %}

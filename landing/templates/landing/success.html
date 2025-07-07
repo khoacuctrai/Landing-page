@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Đăng ký thành công{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="text-center p-5 shadow rounded bg-white" style="max-width: 600px; width: 100%;">
+        <div class="mb-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success" width="80">
+        </div>
+        <h2 class="text-success fw-bold">🎉 Đăng ký thành công!</h2>
+        <p class="lead mt-3 mb-4 text-muted">
+            Cảm ơn bạn đã đăng ký khóa học <strong>Chuyên viên hồi phục tận gốc bệnh Gout</strong>!<br>
+            Vui lòng kiểm tra <strong>email</strong> của bạn để xem nội dung chi tiết khóa học.
+        </p>
+        <a href="{% url 'landing:home' %}" class="btn btn-outline-success btn-lg px-5">
+            ⬅️ Quay lại Trang Chủ
+        </a>
+    </div>
+</div>
+{% endblock %}
