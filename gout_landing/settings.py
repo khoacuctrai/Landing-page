@@ -1,16 +1,16 @@
 import os
 from pathlib import Path
 
+# ✅ Đường dẫn gốc của project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ✅ Bảo mật và debug
 SECRET_KEY = 'django-insecure-8jfgj$r+rqs#of%8g8(-&$vrutbqvd=$ll$&2@xtdow_592&it'
+DEBUG = True  # ❗ Trong quá trình phát triển, luôn để True
 
-DEBUG = False  # 🚨 Khi deploy cần để False
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Có thể thêm domain khi deploy
 
-ALLOWED_HOSTS = ['yourdomain.com', 'www.yourdomain.com', '127.0.0.1', 'localhost']
-# Thay yourdomain.com = domain hoặc IP thực tế nếu có
-
-# Ứng dụng Django & app riêng
+# ✅ Ứng dụng được cài đặt
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -18,11 +18,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'landing',              # app chính của bạn
-    'widget_tweaks',        # để custom form
+    'landing',              # app của bạn
+    'widget_tweaks',        # tùy chọn
 ]
 
-# Middleware
+# ✅ Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -33,13 +33,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# ✅ Định tuyến gốc
 ROOT_URLCONF = 'gout_landing.urls'
 
-# Templates
+# ✅ Cấu hình templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # nơi chứa base.html
+        'DIRS': [BASE_DIR / 'templates'],  # nơi chứa base.html hoặc index.html
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -54,7 +55,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gout_landing.wsgi.application'
 
-# Cơ sở dữ liệu SQLite (bạn có thể thay PostgreSQL nếu cần)
+# ✅ Cơ sở dữ liệu SQLite (có thể thay nếu cần)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -62,7 +63,7 @@ DATABASES = {
     }
 }
 
-# Xác thực mật khẩu (giữ nguyên)
+# ✅ Kiểm tra mật khẩu
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -70,28 +71,33 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Ngôn ngữ và múi giờ
+# ✅ Ngôn ngữ và múi giờ
 LANGUAGE_CODE = 'vi'
 TIME_ZONE = 'Asia/Ho_Chi_Minh'
 USE_I18N = True
 USE_TZ = True
 
-# Static files & Media files
+# ✅ Static files (CSS, JS, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'landing' / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'landing' / 'static',  # đường dẫn tới thư mục chứa ảnh
+]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # nơi collectstatic gom vào
+
+# ✅ Media files (nếu bạn có upload ảnh)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Cấu hình email (Gmail)
+# ✅ Email cấu hình (tuỳ chọn)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'landingpage1402@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'ufkj xyiq dcem jurc')  # 🔥 Bạn có thể dùng biến môi trường thật khi deploy
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'ufkj xyiq dcem jurc')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# Đường dẫn mặc định
+# ✅ Trường mặc định cho model mới
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

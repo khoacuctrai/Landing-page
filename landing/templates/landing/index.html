@@ -4,84 +4,218 @@
 {% block title %}Chuyên viên hồi phục bệnh Gout{% endblock %}
 
 {% block content %}
+<!-- Bootstrap & AOS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="{% static 'landing/style.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-<div class="hero-section text-white text-center py-5" style="background: linear-gradient(to right, #006d5b, #44b09e);">
-  <div class="container">
-    <h1 class="display-4">🌿 CHUYÊN VIÊN HỒI PHỤC TẬN GỐC BỆNH GOUT</h1>
-    <p class="lead">"Người Truyền Thừa" - Chương trình đào tạo đặc biệt của Health Coach Đông Y Việt Nam</p>
-    <a href="#register" class="btn btn-light btn-lg mt-4">Tôi Muốn Hồi Phục Gout</a>
+<link rel="stylesheet" href="{% static 'landing/style.css' %}">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({ duration: 1000, once: true });
+  });
+</script>
+
+<style>
+  body {
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .hero-section {
+    background: linear-gradient(to right, #006d5b, #44b09e);
+    padding: 100px 0;
+    color: white;
+    text-align: center;
+  }
+
+  .btn-light:hover {
+    transform: scale(1.05);
+    transition: all 0.3s;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .card-custom {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+
+  .form-control {
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .form-control:focus {
+    border-color: #44b09e;
+    box-shadow: 0 0 0 0.25rem rgba(68, 176, 158, 0.25);
+  }
+
+  .teacher-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .teacher-card:hover .teacher-img {
+    transform: scale(1.02);
+  }
+
+  .teacher-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+  }
+
+  .teacher-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .img-enhanced {
+    width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 992px) {
+    .img-enhanced {
+      max-height: 220px;
+    }
+  }
+</style>
+
+<!-- HERO -->
+<div class="hero-section" data-aos="fade-down">
+  <div class="container-xl">
+    <h1 class="display-4 fw-bold">🌿 CHUYÊN VIÊN HỒI PHỤC TẬN GỐC BỆNH GOUT</h1>
+    <p class="lead mt-3 fs-5">"Người Truyền Thừa" – Chương trình đào tạo đặc biệt từ Health Coach Đông Y Việt Nam</p>
+    <a href="#register" class="btn btn-light btn-lg mt-4 px-5">Tôi Muốn Hồi Phục Gout</a>
   </div>
 </div>
 
-<div class="container py-5">
-  <section class="mb-5">
-    <h2 class="text-primary">🌟 Bạn Đang Khổ Sở Vì Gout Tái Phát?</h2>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cơn đau khớp bùng lên giữa đêm, không đi lại được?</li>
-      <li class="list-group-item">Sưng đỏ, nóng rát, gan nhiễm độc?</li>
-      <li class="list-group-item">Axit uric cao dù đã kiên cỻ, uống thuốc?</li>
-      <li class="list-group-item">Gout không chỉ là bệnh khớp – đó là tín hiệu của cơ thể!</li>
-    </ul>
-  </section>
+<div class="container-xl">
 
-  <section class="mb-5">
-    <h2 class="text-success">✅ Khóa Học Bạn Cần</h2>
-    <p><strong>Chuyên viên Hồi Phục Tận Gốc Bệnh Gout</strong><br>
-    Học online 5 ngày, có video ghi hình, nhận tư vấn 1:1</p>
-  </section>
-
-  <section class="mb-5">
-    <h2 class="text-primary">🎯 Mục Tiêu Khóa Học</h2>
-    <ul>
-      <li>Hiểu cơ chế tận gốc Gout theo Đông – Tây y</li>
-      <li>Hồi phục Tỳ – Can – Thận</li>
-      <li>Quy trình 4 bước loại bỏ đau & axit uric</li>
-      <li>Dẫn dắt ăn uống – vận động – thảo dược</li>
-    </ul>
-  </section>
-
-  <section class="mb-5">
-    <h2 class="text-success">👨‍🏫 Đội Ngũ Giảng Viên</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <h5>Thầy Đào Hiền Đạo</h5>
-        <p>Chuyên gia YHCT 20 năm kinh nghiệm</p>
-      </div>
-      <div class="col-md-4">
-        <h5>Bác Sĩ Lâm Quang Thư</h5>
-        <p>Chuyên gia chuyển hóa, 3000+ ca Gout</p>
-      </div>
-      <div class="col-md-4">
-        <h5>Dược sĩ Huy</h5>
-        <p>Dược liệu & dinh dưỡng phục hồi</p>
+  <!-- VẤN ĐỀ -->
+  <section class="section" data-aos="fade-up">
+    <div class="card-custom">
+      <h2 class="text-primary mb-4">🌟 Bạn Đang Khổ Sở Vì Gout Tái Phát?</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <ul class="list-group list-group-flush fs-5">
+            <li class="list-group-item">💥 Cơn đau khớp bùng lên giữa đêm, không đi lại được?</li>
+            <li class="list-group-item">🔥 Sưng đỏ, nóng rát, gan nhiễm độc?</li>
+            <li class="list-group-item">💊 Axit uric cao dù đã kiêng cử, uống thuốc?</li>
+            <li class="list-group-item">🧠 Gout không chỉ là bệnh khớp – đó là tín hiệu của cơ thể!</li>
+          </ul>
+        </div>
+        <div class="col-lg-6 text-center mt-4 mt-lg-0">
+          <img src="https://media.post.rvohealth.io/wp-content/uploads/sites/3/2020/08/Gout_Signs_and_Symptoms_thumb-732x549.jpg"
+               alt="Gout Pain"
+               class="img-enhanced"
+               data-aos="zoom-in">
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="register" class="bg-light p-5 rounded">
-    <h3 class="text-center text-primary mb-4">📝 ĐĂNG KÝ THAM DỰ NGAY</h3>
-    <form method="post" class="w-75 mx-auto">
-      {% csrf_token %}
-      <div class="mb-3">
-        {{ form.full_name.label_tag }}
-        {{ form.full_name }}
+  <!-- GIẢI PHÁP -->
+  <section class="section" data-aos="fade-up">
+    <div class="card-custom text-center">
+      <h2 class="text-success mb-3">✅ Khóa Học Bạn Cần</h2>
+      <p class="fs-5">Học online 5 ngày, có video ghi hình, nhận tư vấn 1:1 cùng các chuyên gia đầu ngành.</p>
+      <p><strong>Chuyên viên Hồi Phục Tận Gốc Bệnh Gout</strong></p>
+    </div>
+  </section>
+
+  <!-- MỤC TIÊU -->
+  <section class="section" data-aos="fade-up">
+    <div class="card-custom">
+      <h2 class="text-primary mb-4">🎯 Mục Tiêu Khóa Học</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <ul class="fs-5">
+            <li>Hiểu cơ chế tận gốc Gout theo Đông – Tây y</li>
+            <li>Hồi phục Tỳ – Can – Thận</li>
+            <li>Quy trình 4 bước loại bỏ đau & axit uric</li>
+            <li>Dẫn dắt ăn uống – vận động – thảo dược</li>
+          </ul>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="https://imgcdn.stablediffusionweb.com/2024/10/15/5d4e3e9b-83dd-44ec-a93f-f77c7b9e6bc7.jpg"
+               alt="Mục tiêu"
+               class="img-enhanced"
+               data-aos="zoom-in">
+        </div>
       </div>
-      <div class="mb-3">
-        {{ form.phone.label_tag }}
-        {{ form.phone }}
+    </div>
+  </section>
+
+  <!-- GIẢNG VIÊN -->
+  <section class="section" data-aos="zoom-in">
+    <div class="card-custom">
+      <h2 class="text-success text-center mb-5">👨‍🏫 Đội Ngũ Giảng Viên</h2>
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="teacher-card">
+            <img src="{% static 'landing/dao-hien-dao.jpeg' %}" alt="Thầy Đào Hiền Đạo" class="teacher-img mb-3">
+            <h5>Thầy Đào Hiền Đạo</h5>
+            <p>Chuyên gia Y học cổ truyền – 20 năm kinh nghiệm</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="teacher-card">
+            <img src="{% static 'landing/lam-quang-thu.jpeg' %}" alt="Bác sĩ Lâm Quang Thư" class="teacher-img mb-3">
+            <h5>Bác sĩ Lâm Quang Thư</h5>
+            <p>Chuyên gia chuyển hóa – hơn 3000 ca Gout</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="teacher-card">
+            <img src="{% static 'landing/duoc-si-huy.jpg' %}" alt="Dược sĩ Huy" class="teacher-img mb-3">
+            <h5>Dược sĩ Huy</h5>
+            <p>Chuyên gia dược liệu & dinh dưỡng phục hồi</p>
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-        {{ form.email.label_tag }}
-        {{ form.email }}
-      </div>
-      <div class="mb-3">
-        {{ form.city.label_tag }}
-        {{ form.city }}
-      </div>
-      <button type="submit" class="btn btn-success w-100">Tôi Muốn Đăng Ký Ngay</button>
-    </form>
+    </div>
+  </section>
+
+  <!-- ĐĂNG KÝ -->
+  <section id="register" class="section" data-aos="fade-up">
+    <div class="card-custom">
+      <h3 class="text-center text-primary mb-4">📝 ĐĂNG KÝ THAM DỰ NGAY</h3>
+      <form method="post" class="row g-3 w-75 mx-auto">
+        {% csrf_token %}
+        <div class="col-md-6">
+          {{ form.full_name.label_tag }} {{ form.full_name }}
+        </div>
+        <div class="col-md-6">
+          {{ form.phone.label_tag }} {{ form.phone }}
+        </div>
+        <div class="col-md-6">
+          {{ form.email.label_tag }} {{ form.email }}
+        </div>
+        <div class="col-md-6">
+          {{ form.city.label_tag }} {{ form.city }}
+        </div>
+        <div class="col-12 text-center mt-4">
+          <button type="submit" class="btn btn-success btn-lg px-5">🚀 Tôi Muốn Đăng Ký Ngay</button>
+        </div>
+      </form>
+    </div>
   </section>
 </div>
 {% endblock %}
